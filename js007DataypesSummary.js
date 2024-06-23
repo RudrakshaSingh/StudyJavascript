@@ -29,6 +29,7 @@ let myObj = {
     age: 22,
 };
 
+//type of function is function / object function
 const myFunction = function () {
     console.log("Hello world");
 };
