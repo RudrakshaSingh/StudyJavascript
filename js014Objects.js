@@ -8,6 +8,7 @@
 
 const mySym = Symbol("key1");
 
+//this is object literal
 const JsUser = {
     name: "Hitesh",
     "full name": "Hitesh Choudhary", //you cannot access this with . dot method bcaz of space and quotes
