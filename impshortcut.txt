@@ -1,3 +1,5 @@
 ctrl+shift+l to change variable at same time also select and f2
 
 win+shift+s =>for snipping screnshot
+
+shift+alt+down or up arrow=>to paste the selected code just below it
