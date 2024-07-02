@@ -1,5 +1,10 @@
 ctrl+shift+l to change variable at same time also select and f2
+cntrl+d =>to change everthing together
 
 win+shift+s =>for snipping screnshot
 
 shift+alt+down or up arrow=>to paste the selected code just below it
+
+ctrl+c => to stop terminal
+
+ctrl+` => to open terminal
