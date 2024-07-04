@@ -8,3 +8,8 @@ shift+alt+down or up arrow=>to paste the selected code just below it
 ctrl+c => to stop terminal
 
 ctrl+` => to open terminal
+
+/////////HTML
+!+tab = >boiler plate code
+lorem5+tab =>any words random of 5 character
+ctrl+/ =>comment
