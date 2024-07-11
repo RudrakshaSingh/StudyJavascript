@@ -17,7 +17,7 @@ const promiseOne = new Promise(function (resolve, reject) {
     //Do an async task
     // DB calls, cryptography, network
     setTimeout(function () {
-        // console.log("Async task is compelete. line 17");
+        console.log("Async task is compelete. line 17");
         resolve(); //after this only .then will connect to promise
     }, 1000);
 });
@@ -33,11 +33,11 @@ promiseOne.then(function () {
 
 new Promise(function (resolve, reject) {
     setTimeout(function () {
-        // console.log("Async task 2");
+        console.log("Async task 2");
         resolve();
     }, 1000);
 }).then(function () {
-    // console.log("Async 2 resolved/consumed. line 37");
+    console.log("Async 2 resolved/consumed. line 37");
 });
 
 /********************* second promise ************************************************* */
@@ -49,7 +49,7 @@ const promiseTwo = new Promise(function (resolve, reject) {
 });
 
 promiseTwo.then(function (user) {
-    // console.log(user, " Line49");
+    console.log(user, " Line49");
 });
 
 /********************* third promise ************************************************* */
@@ -67,14 +67,14 @@ const promiseThree = new Promise(function (resolve, reject) {
 
 promiseThree
     .then((user) => {
-        // console.log(user, "line67");
+        console.log(user, "line67");
         return user.username; //gives to next then
     })
     .then((username) => {
-        // console.log(username, "line71");
+        console.log(username, "line71");
     })
     .catch(function (error) {
-        // console.log(error, "line74");
+        console.log(error, "line74");
     })
     .finally(() => console.log("The promise is either resolved or rejected"));
 
@@ -131,3 +131,4 @@ fetch("https://api.github.com/users/hiteshchoudhary")
 
 // promise.all
 // yes this is also available, kuch reading aap b kro.
+//fetch usullay happen faster due to microtask queue/priority queue
