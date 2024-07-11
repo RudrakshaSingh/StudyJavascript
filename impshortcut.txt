@@ -1,5 +1,4 @@
 ctrl+shift+l to change variable at same time also select and f2
-cntrl+d =>to change everthing together
 
 win+shift+s =>for snipping screnshot
 
