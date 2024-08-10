@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>htnml Events</title>
+    </head>
+    <body style="background-color: #414141; color: aliceblue">
+        <h2>Amazing image</h2>
+        <div>
+            <ul id="images">
+                <li>
+                    <img
+                        width="200px"
+                        id="photoshop"
+                        src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                        alt="photoshop"
+                    />
+                </li>
+                <li>
+                    <img
+                        width="200px"
+                        id="japan"
+                        src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                        alt=""
+                    />
+                </li>
+                <li>
+                    <img
+                        width="200px"
+                        id="river"
+                        src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                        alt=""
+                    />
+                </li>
+                <li>
+                    <img
+                        width="200px"
+                        id="owl"
+                        src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                        alt=""
+                    />
+                </li>
+                <li>
+                    <img
+                        width="200px"
+                        id="prayer"
+                        src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                        alt=""
+                    />
+                </li>
+                <li><a style="color: aliceblue" href="https://google.com" id="google">Google</a></li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        /*********************************************************************************/
+
+        document.getElementById("owl").onclick = function () {
+            // alert("owl clicked");
+        };
+        //bad approch to write onclick directly on tag
+        //this approch is also bad(it give less features) as on id we put onclick there can be problems you should put addEventListeners
+
+        // attachEvent() :=>method at early times
+        // jQuery - on    :=>method at early times
+
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget,
+        // clientX, clientY, screenX, screenY
+        // altkey, ctrlkey, shiftkey, keyCode
+
+        //best approch
+        document.getElementById("owl").addEventListener(
+            "click",
+            function (e) {
+                // console.log(e);
+            },
+            false //this is third parameter default is also false you dont have to right it
+        );
+        //this is for event propogation of 2 types
+        //1.event bubling - false
+        //2.event capturing - true
+
+        //progpagation niche se uper inner elements to outside(bubling) as given in below code
+
+        /***********************************************************************/
+
+        //even without false works same
+        document.getElementById("images").addEventListener(
+            "click",
+            function (e) {
+                console.log("clicked inside the ul");
+            },
+            false
+        );
+
+        document.getElementById("owl").addEventListener(
+            "click",
+            function (e) {
+                console.log("clicked on owl");
+                e.stopPropagation();
+            },
+            false
+        );
+
+        //capturing mode can be done by putting both true
+        //now if you click on owl clicked inside ul will come first
+
+        // in line 102 after it the owl clicked will go then clicked inside url will not come up
+
+        /***********************************************************************/
+
+        //change default behaviour so it willl not take to google.com
+        document.getElementById("google").addEventListener(
+            "click",
+            function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("google clicked and prevent default");
+            },
+            false
+        );
+
+        /********************************************************************************/
+
+        // to make image disappear when clicked
+        document.querySelector("#images").addEventListener("click", function (e) {
+            console.log(e.target.tagName);
+
+            //as if we click on google it remove the whole ul so do only on img
+            if (e.target.tagName === "IMG") {
+                console.log(e.target.id);
+                let removeIt = e.target.parentNode; //as we dont want to remove img but its parent node li inside ul
+                removeIt.remove();
+
+                // removeIt.parentNode.removeChild(removeIt); //another method to remove
+            }
+        });
+    </script>
+</html>
